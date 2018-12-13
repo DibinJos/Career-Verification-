@@ -1,0 +1,220 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px"></div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+
+<div>
+   
+      <!-- <img style="position: absolute;left:-9px"src="../../assets/educational institutions-01.png" alt="Avatar"> -->
+ 
+    <div style="left: 25px;
+    top: 55px;
+    position: relative;
+    right: 20px;">
+      <h1 style="color: black;"class="title is-1">
+      Employ-Chain
+      </h1>
+      <h2 style="color: black;"class="title">
+        A Chain of Certified Employees/Students
+      </h2>
+    </div>
+    <mat-card  style="width: 26%;
+    float: right;
+    right: 49px;
+    height: 150px;
+    top: -64px;background-color: white;">
+    <mat-form-field >
+      <mat-select placeholder="-Select Role-" [(ngModel)]="selectedRole">
+        <mat-option *ngFor="let role of roles" [value]="role">
+          {{role}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <button style="background-color:#333333"_ngcontent-c22="" (click)="login()"mat-flat-button="" class="mat-flat-button mat-primary"><span class="mat-button-wrapper">Login</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+  
+  </mat-card>
+  </div>
+
+
+<div class="row" style="top: 293px;position: relative;">
+
+    <div class="col-md-3">
+        <img style="margin-left:128px" src="../../assets/Candidate-01.png" alt="Avatar">
+  <mat-card class="example-card" style="bottom:33px;  height:200px " >
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title><b>Candidate</b></mat-card-title>
+        <!-- <mat-card-subtitle>Get Educational/Employment details Verified</mat-card-subtitle> -->
+      </mat-card-header>
+       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+      <mat-card-content>
+        <p>
+            Create your Blockchain certified profile & apply for jobs
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+          <button style="bottom:-17px" mat-button (click)="showform('candidate')">ENROLL</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="col-md-3">
+      <img style="margin-left:128px" src="../../assets/educational institutions-2 -01.png" alt="Avatar">
+      <mat-card class="example-card" style="bottom:25px;">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title><b>Educational Institute</b></mat-card-title>
+            <!-- <mat-card-subtitle>Verify & Earn</mat-card-subtitle> -->
+          </mat-card-header>
+           <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+            <p>
+                Provide candidates details and access the candidate database
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="showform('education')">ENROLL</button>
+
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="col-md-3" style="top:23px;">
+          <img style="margin-left:84px;
+          bottom: 170px;
+          position: relative;" src="../../assets/Company.png" alt="Avatar">
+          <mat-card class="example-card" style=" bottom:196px;   height: 187px;">
+              <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title><b>Companies/Employer</b></mat-card-title>
+                <!-- <mat-card-subtitle>Verify & Earn</mat-card-subtitle> -->
+              </mat-card-header>
+               <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+              <mat-card-content>
+                <p>
+                Provide candidate job experience and access the candidate database
+                   </p>
+              </mat-card-content>
+              <mat-card-actions>
+                  <button style="bottom:3px;"mat-button (click)="showform('employer')">ENROLL</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+
+          <div class="col-md-3">
+              <img style="margin-left:90px;
+              bottom: 170px;
+              position: relative;" src="../../assets/recruiter-01.png" alt="Avatar">
+              <mat-card class="example-card" style="bottom: 175px;    height: 187px;">
+                  <mat-card-header>
+                    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                    <mat-card-title><b>Recruiter/Job Aggregator</b></mat-card-title>
+                    <!-- <mat-card-subtitle>Recruit  Candidates</mat-card-subtitle> -->
+                  </mat-card-header>
+                   <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                  <mat-card-content>
+                    <p>
+                    Access Blockchain verified candidates   
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                      <button  style="bottom:-17px" mat-button (click)="showform('recruiter')">ENROLL</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+
+   
+
+
+
+  
+
+
+</div>
+  
+</div>
+
+
+<!-- <div class="container"> 
+  <h1 class="title">Send Metacoin</h1>
+  <h1 class="title is-4 is-info help">{{status}}</h1>
+
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Amount</label>
+      <p class="control">
+        <input
+          [(ngModel)]="sendingAmount"
+          class="input"
+          type="text"
+          placeholder="95"
+          name="sendingAmount"
+          required
+          #sendingAmountModel="ngModel">
+      </p>
+      <div *ngIf="sendingAmountModel.errors && (sendingAmountModel.dirty || sendingAmountModel.touched)"
+           class="help is-danger">
+          <p [hidden]="!sendingAmountModel.errors.required">
+            This field is required
+          </p>
+      </div>
+      <div *ngIf="!sendingAmountModel.errors && (sendingAmountModel.dirty || sendingAmountModel.touched)"
+           class="help is-danger">
+          <p [hidden]="canBeNumber(sendingAmount)">
+            Must be a number
+          </p>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">To Address</label>
+      <p class="control">
+        <input
+          [(ngModel)]="recipientAddress"
+          name="recipientAddress"
+          class="input"
+          type="text"
+          placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+          name="recipientAddress"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+      <div *ngIf="recipientAddressModel.errors && (recipientAddressModel.dirty || recipientAddressModel.touched)"
+           class="help is-danger">
+          <p [hidden]="!recipientAddressModel.errors.required">
+            This field is required
+          </p>
+      </div>
+      <div *ngIf="!recipientAddressModel.errors && (recipientAddressModel.dirty || recipientAddressModel.touched)"
+           class="help is-danger">
+          <p [hidden]="canBeNumber(recipientAddress)">
+            Must be a number
+          </p>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="!coinForm.valid"
+          (click)="sendCoin()"
+          class="button is-primary">
+          Send
+        </button>
+      </p>
+    </div>
+  </form>
+
+  <strong>Hint:</strong> open the browser developer console to view any errors and warnings.
+
+</div> -->
+

@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+    <mat-card-header style="    background: #ffd200;;
+    position: relative;
+    height: 71px;
+    top: -24px;
+    width: 112.5%;
+    left: -25px;">
+      <!-- <div mat-card-avatar class="example-header-image"><i class="fa fa-check" aria-hidden="true"></i></div> -->
+      <mat-card-title>
+        <span style="top: 23px;position: 
+        relative;font-family: Roboto,'Helvetica Neue',sans-serif;font-size:20px">Job Application</span></mat-card-title>
+      <!-- <mat-card-subtitle>Educational</mat-card-subtitle> -->
+    </mat-card-header>
+   
+    <mat-card-content>
+      <!-- <button (click)="download()">Hello Download</button> -->
+        <mat-form-field style="width:100%">
+            <mat-select style="width:100%;margin-top:7px" placeholder="-Select an Employer-" [(ngModel)]="selectedValue" name="food">
+              <mat-option *ngFor="let employer of employers" [value]="employer.id">
+                {{employer.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+            <input style="width:100%;margin-top:7px" type="file" ng2FileSelect [uploader]="uploader" />
+            <br>
+            <mat-form-field style="width:100%;margin-top:17px"class="example-full-width" >
+                    <textarea [(ngModel)]="jobModel.candidateRemarks"  [ngModelOptions]="{standalone: true}" matInput placeholder="Leave a comment"></textarea>
+                  </mat-form-field>
+
+                  
+    </mat-card-content>
+    <mat-card-actions>
+            <button style="background-color: #333333"(click)="apply()" mat-button style="margin-top:-8px">Send</button>
+    </mat-card-actions>
+  </mat-card>

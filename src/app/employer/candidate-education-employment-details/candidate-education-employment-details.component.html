@@ -1,0 +1,291 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 47%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+    <ul class="navbar-nav">
+        
+        <li class="nav-item active">
+            <a  [routerLink]="['/jobrequest']" style="color:white" class="nav-link">Job Requests</a>
+          </li>
+        <li class="nav-item active">
+            <a  [routerLink]="['/upload-employee']" style="color:white" class="nav-link">Upload Employment Details</a>
+          </li>
+            <li class="nav-item active">
+                <a  [routerLink]="['/search-employee']" style="color:white" class="nav-link">Search Employment Details</a>
+              </li>
+              <li class="nav-item active">
+                  <a  [routerLink]="['/job-posting']" style="color:white" class="nav-link">Job Postings</a>
+                </li>
+                <li class="nav-item active">
+                    <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+                  </li>   
+            
+        </ul>
+
+</div>
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;">Candidate Name:Harry Kane</h1>
+
+  <mat-card style="margin: 36px;">
+      <mat-card-title>Education Details</mat-card-title>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="studentClass">
+        <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Education </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.studentClass}} </td>
+      </ng-container>
+    
+      <!-- RegNumber Column -->
+      <ng-container matColumnDef="registrationNumber">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> RegNumber </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.registrationNumber}} </td>
+      </ng-container>
+    
+      <!-- Board Column -->
+      <ng-container matColumnDef="board">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Board </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.board}} </td>
+      </ng-container>
+    
+      <!-- School Column -->
+      <ng-container matColumnDef="schoolName">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> School </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.schoolName}} </td>
+      </ng-container>
+      <!-- Batch Column -->
+      <ng-container matColumnDef="batch">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Batch </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.batch}} </td>
+      </ng-container>
+      <!-- Region Column -->
+      <ng-container matColumnDef="region">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Region </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.region}} </td>
+      </ng-container>
+      <!-- CGPA Column -->
+      <ng-container matColumnDef="cgpa">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CGPA/% </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.cgpa}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Approve">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px">Certify/Reject</th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element">
+            <i *ngIf="(element.approve != 'Approved') && (element.approve != 'Rejected')"   (click)="approve(candidateId,element)"style="color:green;font-size:26px"class="fa fa-check" aria-hidden="true"></i>
+            <i *ngIf="(element.approve != 'Approved') && (element.approve != 'Rejected')" (click)="reject(candidateId,element)"style="color:red;font-size:26px;margin-left:10px"class="fa fa-times" aria-hidden="true"></i>
+            <span *ngIf="element.approve == 'Approved'"> 
+              <span class="fa fa-stack">
+                <i style="color:rgb(76, 175, 80)"class="fa fa-shield fa-stack-2x"></i>
+                <i class="fa fa-square fa-stack-bottom-right fa-inverse"></i>
+                <i style="color:rgb(76, 175, 80)"class="fa fa-check-square fa-stack-bottom-right"></i>
+            </span>
+          
+          </span>
+  
+          <span *ngIf="element.approve == 'Rejected'"> 
+              <i style="color:red" class="fa fa-ban" aria-hidden="true"></i>
+          
+          </span>
+          </td>
+        </ng-container>
+
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+<!-- Pre degree details ends here -->
+
+    <table style="margin-top:30px" mat-table [dataSource]="dataSource_degree" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="degree">
+          <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Degree </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.degreeName}} </td>
+        </ng-container>
+      
+        <!-- RegNumber Column -->
+        <ng-container matColumnDef="registrationNumber">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> RegNumber </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.regNumber}} </td>
+        </ng-container>
+      
+        <!-- Board Column -->
+        <ng-container matColumnDef="specialisation">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Specialisation </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.specialisation}} </td>
+        </ng-container>
+      
+        <!-- School Column -->
+        <ng-container matColumnDef="college">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> College </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.college}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="batch">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Batch </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.batch}} </td>
+          </ng-container>
+        <!-- Batch Column -->
+        <ng-container matColumnDef="university">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> University </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.university}} </td>
+        </ng-container>
+        <!-- Region Column -->
+
+        <!-- CGPA Column -->
+        <ng-container matColumnDef="cgpa">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CGPA/% </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.cgpa}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="region">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Region </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.region}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Approve">
+              <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px">Certify/Reject</th>
+              <td style="padding: 13px;" mat-cell *matCellDef="let element">
+                <i *ngIf="(element.approve != 'Approved') && (element.approve != 'Rejected')"   (click)="approveDegree(candidateId,element)"style="color:green;font-size:26px"class="fa fa-check" aria-hidden="true"></i>
+                <i *ngIf="(element.approve != 'Approved') && (element.approve != 'Rejected')" (click)="rejectDegree(candidateId,element)"style="color:red;font-size:26px;margin-left:10px"class="fa fa-times" aria-hidden="true"></i>
+                <span *ngIf="element.approve == 'Approved'"> 
+                  <span class="fa fa-stack">
+                    <i style="color:rgb(76, 175, 80)"class="fa fa-shield fa-stack-2x"></i>
+                    <i class="fa fa-square fa-stack-bottom-right fa-inverse"></i>
+                    <i style="color:rgb(76, 175, 80)"class="fa fa-check-square fa-stack-bottom-right"></i>
+                </span>
+              
+              </span>
+      
+              <span *ngIf="element.approve == 'Rejected'"> 
+                  <i style="color:red;font-size: 20px;
+                  margin-left: 7px;" class="fa fa-ban" aria-hidden="true"></i>
+              
+              </span>
+              </td>
+            </ng-container>
+
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns_degree"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns_degree;"></tr>
+      </table>
+    
+    <!-- Degree details end here -->
+
+    </mat-card>
+    <mat-card style="margin: 36px;">
+        <mat-card-title>Employment Details</mat-card-title>
+    <table style="margin-top:30px" mat-table [dataSource]="dataSource_employement" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="companyName">
+          <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Name of the Company </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+        </ng-container>
+      
+        <!-- RegNumber Column -->
+        <ng-container matColumnDef="employeeId">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Employee Id </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.employeeId}} </td>
+        </ng-container>
+      
+        <!-- Board Column -->
+        <ng-container matColumnDef="fromDate">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> From </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.fromDate}} </td>
+        </ng-container>
+      
+        <!-- School Column -->
+        <ng-container matColumnDef="toDate">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> To </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.toDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Role </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.role}} </td>
+          </ng-container>
+        <!-- Batch Column -->
+        <ng-container matColumnDef="tenure">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Tenure in the role </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.tenure}} </td>
+        </ng-container>
+        <!-- Region Column -->
+
+        <!-- CGPA Column -->
+        <ng-container matColumnDef="ctc">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CTC </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.ctc}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Approve">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px">Certify/Reject</th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element">
+              <i *ngIf="(element.approve != 'Approved') && (element.approve != 'Rejected')"   (click)="approve(candidateId,element)"style="color:green;font-size:26px"class="fa fa-check" aria-hidden="true"></i>
+              <i *ngIf="(element.approve != 'Approved') && (element.approve != 'Rejected')" (click)="reject(candidateId,element)"style="color:red;font-size:26px;margin-left:10px"class="fa fa-times" aria-hidden="true"></i>
+              <span *ngIf="element.approve == 'Approved'"> 
+                <span class="fa fa-stack">
+                  <i style="color:rgb(76, 175, 80)"class="fa fa-shield fa-stack-2x"></i>
+                  <i class="fa fa-square fa-stack-bottom-right fa-inverse"></i>
+                  <i style="color:rgb(76, 175, 80)"class="fa fa-check-square fa-stack-bottom-right"></i>
+              </span>
+            
+            </span>
+    
+            <span *ngIf="element.approve == 'Rejected'"> 
+                <i style="color:red;font-size: 20px;
+                margin-left: 7px;" class="fa fa-ban" aria-hidden="true"></i>
+            
+            </span>
+            </td>
+          </ng-container>
+
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns_employement"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns_employement;"></tr>
+      </table>
+
+
+</mat-card>
+
+<mat-card style="margin: 36px;">
+    <mat-card-title>Documents</mat-card-title>
+    <mat-chip-list >
+        <mat-chip *ngFor="let document of documentList" (click)="download(document.documentName)">{{document.documentName}}</mat-chip>
+      </mat-chip-list>
+  
+</mat-card>
+
+
+</div>

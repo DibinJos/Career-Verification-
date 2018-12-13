@@ -1,0 +1,155 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 47%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+    <ul class="navbar-nav">
+        
+        <li class="nav-item active">
+            <a  [routerLink]="['/jobrequest']" style="color:white" class="nav-link">Job Requests</a>
+          </li>
+        <li class="nav-item active">
+            <a  [routerLink]="['/upload-employee']" style="color:white" class="nav-link">Upload Employment Details</a>
+          </li>
+            <li class="nav-item active">
+                <a  [routerLink]="['/search-employee']" style="color:white" class="nav-link">Search Employment Details</a>
+              </li>
+              <li class="nav-item active">
+                  <a  [routerLink]="['/job-posting']" style="color:white" class="nav-link">Job Postings</a>
+                </li>
+                <li class="nav-item active">
+                    <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+                  </li>   
+            
+        </ul>
+
+</div>
+
+
+
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;">Add Job Postings</h1>
+
+  <mat-card style="margin: 36px;">
+   
+    
+
+<div class="row" >
+  <div class="col-md-4">
+      <mat-card class="example-card cardHeight">
+          <mat-card-header>
+            <mat-card-title>  
+              <mat-form-field class="example-full-width">
+                <input [(ngModel)]="jobPosting.title" matInput placeholder="Job Title">
+              </mat-form-field>
+            </mat-card-title>
+            <!-- <mat-card-subtitle>Job ID:12323</mat-card-subtitle> -->
+          </mat-card-header>
+          <mat-card-content class="contentHeight">
+              <mat-form-field class="example-full-width">
+                  <textarea [(ngModel)]="jobPosting.eligibility"matInput placeholder="Eligibility"></textarea>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <textarea [(ngModel)]="jobPosting.description"matInput placeholder="Description"></textarea>
+                  </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions >
+            <button  mat-button (click)="addjobPostings()">Add</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="col-md-4">
+          <mat-card class="example-card cardHeight">
+              <mat-card-header>
+                <mat-card-title>Blockchain Developer</mat-card-title>
+                <mat-card-subtitle>Job ID:12323</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content class="contentHeight">
+                <p>
+                  Experienced in blockchain technology and knowledeg in solution building for customers around Blockchain technology.
+                  Overall experience of 3+ years with languages Python,GO or Java.
+                  Hands On technical exposure to blockchain technologies such as Ethereum.Hyperledger,Ripple
+                </p>
+              </mat-card-content>
+              <mat-card-actions >
+              </mat-card-actions>
+            </mat-card>
+          
+          
+            
+          
+          
+            
+          </div>
+          <div class="col-md-4">
+              <mat-card class="example-card cardHeight">
+                  <mat-card-header>
+                    <mat-card-title>Blockchain Developer</mat-card-title>
+                    <mat-card-subtitle>Job ID:12323</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content class="contentHeight">
+                    <p>
+                      Experienced in blockchain technology and knowledeg in solution building for customers around Blockchain technology.
+                      Overall experience of 3+ years with languages Python,GO or Java.
+                      Hands On technical exposure to blockchain technologies such as Ethereum.Hyperledger,Ripple
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions >
+                  </mat-card-actions>
+                </mat-card>
+              
+              
+                
+              
+              
+                
+              </div>
+</div>
+
+<div class="row">
+<div class="col-md-4" *ngFor="let jobposting of listJobPostings" style="margin-top:20px">
+
+    <mat-card class="example-card cardHeight">
+        <mat-card-header>
+          <mat-card-title>{{jobposting.title}}</mat-card-title>
+          <mat-card-subtitle>Job Id:{{jobposting.id}}</mat-card-subtitle>
+          <mat-card-subtitle>Eligibility:{{jobposting.eligibility}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="contentHeight">
+          <p>
+            {{jobposting.description}}
+          </p>
+          <br>
+          <p>Posted On:{{jobposting.postedOn}}</p>
+        </mat-card-content>
+        <mat-card-actions >
+        </mat-card-actions>
+      </mat-card>
+
+</div>
+
+</div>
+
+</mat-card>
+</div>

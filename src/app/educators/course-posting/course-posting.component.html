@@ -1,0 +1,152 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 41%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+    <ul class="navbar-nav">
+        
+        <li class="nav-item active">
+            <a  [routerLink]="['/courserequest']" style="color:white" class="nav-link">Course Requests</a>
+          </li>
+        <li class="nav-item active">
+            <a  [routerLink]="['/upload-candidate']" style="color:white" class="nav-link">Upload Candidate Details</a>
+          </li>
+            <li class="nav-item active">
+                <a  [routerLink]="['/search']" style="color:white" class="nav-link">Search Candidate Details</a>
+              </li>
+              <li class="nav-item active">
+                  <a  [routerLink]="['/course-posting']" style="color:white" class="nav-link">Course Postings</a>
+                </li>
+                <li class="nav-item active">
+                    <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+                  </li>
+            
+        </ul>
+
+</div>
+
+
+
+
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;">Add Course Postings</h1>
+
+  <mat-card style="margin: 36px;">
+   
+    
+
+<div class="row">
+  <div class="col-md-4">
+      <mat-card class="example-card cardHeight">
+          <mat-card-header>
+            <mat-card-title>  
+              <mat-form-field class="example-full-width">
+                <input [(ngModel)]="coursePosting.title" matInput placeholder="Course Title">
+              </mat-form-field>
+            </mat-card-title>
+            <!-- <mat-card-subtitle>Job ID:12323</mat-card-subtitle> -->
+          </mat-card-header>
+          <mat-card-content class="contentHeight">
+              <mat-form-field class="example-full-width">
+                  <textarea [(ngModel)]="coursePosting.eligibility"matInput placeholder="Eligibility"></textarea>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <textarea [(ngModel)]="coursePosting.description"matInput placeholder="Description"></textarea>
+                  </mat-form-field>
+          </mat-card-content>
+          <mat-card-actions >
+            <button  mat-button (click)="addCoursePostings()">Add</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <div class="col-md-4">
+          <mat-card class="example-card cardHeight">
+              <mat-card-header>
+                <mat-card-title>B.Com</mat-card-title>
+                <mat-card-subtitle>Coourse ID:12323</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content class="contentHeight">
+                <p>
+                B.Com is a 3-year undergraduate degree in Commerce, the minimum eligibility for which is passing of Higher Secondary Examination with Maths and English as core subjects. The main aim of B.Com. course is to prepare individuals who are equipped with knowledge and skills related to Economics and Business Management. It helps to provide a variety of managerial skills to an aspiring student
+                </p>
+              </mat-card-content>
+              <mat-card-actions >
+              </mat-card-actions>
+            </mat-card>
+          
+          
+            
+          
+          
+            
+          </div>
+          <div class="col-md-4">
+              <mat-card class="example-card cardHeight">
+                  <mat-card-header>
+                    <mat-card-title>B.Sc.</mat-card-title>
+                    <mat-card-subtitle>Course ID:12323</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content class="contentHeight">
+                    <p>
+                        University of Kashmir B.Sc. MLT Admission 2018 – University of Kashmir invites applications from eligible candidates for admission to three year B.Sc. Medical Lab Technology (MLT)Course at Dr. Qadri’s College of Medical Laboratory Technology, Srinagar for the academic session 2018-19.
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions >
+                  </mat-card-actions>
+                </mat-card>
+              
+              
+                
+              
+              
+                
+              </div>
+</div>
+
+<div class="row" >
+
+  <div class="col-md-4" *ngFor="let coursePosting of courPostingsList" style="margin-top:20px">
+
+      <mat-card class="example-card cardHeight">
+          <mat-card-header>
+            <mat-card-title>{{coursePosting.title}}</mat-card-title>
+            <mat-card-subtitle>Course Id:{{coursePosting.id}}</mat-card-subtitle>
+            <mat-card-subtitle>Eligibility:{{coursePosting.eligibility}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="contentHeight">
+            <p>
+                {{coursePosting.description}}    
+            </p>
+            <br>
+            <p>Posted On:<b>{{coursePosting.postedOn}}</b></p>
+          </mat-card-content>
+          <mat-card-actions >
+          </mat-card-actions>
+        </mat-card>
+
+  </div> 
+</div>
+
+</mat-card>
+</div>

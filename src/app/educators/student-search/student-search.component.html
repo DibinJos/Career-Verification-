@@ -1,0 +1,217 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 41%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+    <ul class="navbar-nav">
+        
+        <li class="nav-item active">
+            <a  [routerLink]="['/courserequest']" style="color:white" class="nav-link">Course Requests</a>
+          </li>
+        <li class="nav-item active">
+            <a  [routerLink]="['/upload-candidate']" style="color:white" class="nav-link">Upload Candidate Details</a>
+          </li>
+            <li class="nav-item active">
+                <a  [routerLink]="['/search']" style="color:white" class="nav-link">Search Candidate Details</a>
+              </li>
+              <li class="nav-item active">
+                  <a  [routerLink]="['/course-posting']" style="color:white" class="nav-link">Course Postings</a>
+                </li>
+                <li class="nav-item active">
+                    <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+                  </li>
+            
+        </ul>
+
+</div>
+
+
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;">Search Candidate</h1>
+
+  <mat-card style="margin: 36px;">
+   
+  
+<span *ngIf="!showDegree">
+    <mat-form-field>
+      <input matInput  [(ngModel)]="filter[0].batch" placeholder="Batch">
+    </mat-form-field>
+
+    <mat-form-field  style="margin-left:20px">
+        <input matInput  [(ngModel)]="filter[0].education"placeholder="Education">
+      </mat-form-field> 
+
+      <mat-form-field style="margin-left:20px">
+          <input matInput  [(ngModel)]="filter[0].reg" placeholder="Registraion Number">
+        </mat-form-field> 
+
+    
+
+        <button _ngcontent-c50="" style="margin-left:20px;background-color: #333333" (click)="applyFilter()" color="primary" mat-raised-button="" class="mat-raised-button mat-primary"><span class="mat-button-wrapper">Apply Filter</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+</span>
+
+
+<span *ngIf="showDegree">
+    <mat-form-field>
+      <input matInput  [(ngModel)]="filter_degree[0].batch" placeholder="Batch">
+    </mat-form-field>
+
+    <mat-form-field  style="margin-left:20px">
+        <input matInput  [(ngModel)]="filter_degree[0].degree"placeholder="Degree/PG/PhD">
+      </mat-form-field> 
+
+      <mat-form-field style="margin-left:20px">
+          <input matInput  [(ngModel)]="filter_degree[0].reg" placeholder="Registraion Number">
+        </mat-form-field> 
+
+    
+
+        <button _ngcontent-c50="" style="margin-left:20px;background-color: #333333" (click)="applyDegreeFilter()" color="primary" mat-raised-button="" class="mat-raised-button mat-primary"><span class="mat-button-wrapper">Apply Filter</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+</span>
+        <mat-form-field style="float:right">
+            <mat-select placeholder="-Select-" [(ngModel)]="education" (selectionChange)="change($event)">
+              <mat-option *ngFor="let educatio of educations" [value]="educatio">
+                {{educatio}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+   
+
+    <table  *ngIf="!showDegree" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Name </th>
+            <td style="padding: 13px;"mat-cell *matCellDef="let element" > {{element.Name}} </td>
+          </ng-container>
+    
+          
+      <ng-container matColumnDef="Education">
+        <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Education </th>
+        <td style="padding: 13px;"mat-cell *matCellDef="let element" > {{element.Education}} </td>
+      </ng-container>
+    
+      <!-- RegNumber Column -->
+      <ng-container matColumnDef="RegNumber">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> RegNumber </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.RegNumber}} </td>
+      </ng-container>
+    
+      <!-- Board Column -->
+      <ng-container matColumnDef="Board">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Board </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Board}} </td>
+      </ng-container>
+    
+      <!-- School Column -->
+      <ng-container matColumnDef="School">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> School </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.School}} </td>
+      </ng-container>
+      <!-- Batch Column -->
+      <ng-container matColumnDef="Batch">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Batch </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Batch}} </td>
+      </ng-container>
+      <!-- Region Column -->
+      <ng-container matColumnDef="Region">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Region </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Region}} </td>
+      </ng-container>
+      <!-- CGPA Column -->
+      <ng-container matColumnDef="CGPA">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CGPA/% </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.CGPA}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+
+
+    <table *ngIf="showDegree" mat-table [dataSource]="dataSource_degree" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Name </th>
+            <td style="padding: 13px;"mat-cell *matCellDef="let element" > {{element.Name}} </td>
+          </ng-container>
+    
+          
+      <ng-container matColumnDef="Degree">
+        <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Education </th>
+        <td style="padding: 13px;"mat-cell *matCellDef="let element" > {{element.Degree}} </td>
+      </ng-container>
+    
+      <!-- RegNumber Column -->
+      <ng-container matColumnDef="RegNumber">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> RegNumber </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.RegNumber}} </td>
+      </ng-container>
+    
+      <!-- Board Column -->
+      <ng-container matColumnDef="Specialisation">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Specialisation </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Specialisation}} </td>
+      </ng-container>
+
+
+            <!-- School Column -->
+            <ng-container matColumnDef="College">
+                <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> College </th>
+                <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.College}} </td>
+              </ng-container>
+    
+      <!-- School Column -->
+      <ng-container matColumnDef="University">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> University </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.University}} </td>
+      </ng-container>
+      <!-- Batch Column -->
+      <ng-container matColumnDef="Batch">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Batch </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Batch}} </td>
+      </ng-container>
+      <!-- Region Column -->
+      <ng-container matColumnDef="Region">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Region </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Region}} </td>
+      </ng-container>
+      <!-- CGPA Column -->
+      <ng-container matColumnDef="CGPA">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CGPA/% </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.CGPA}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns_degree"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns_degree;"></tr>
+    </table>
+    
+
+
+
+
+
+</mat-card>
+</div>

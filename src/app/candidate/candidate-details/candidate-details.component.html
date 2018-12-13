@@ -1,0 +1,522 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 69%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+<ul class="navbar-nav">
+    <li class="nav-item active">
+        <a style="color:white"class="nav-link" [routerLink]="['/candidate-profile/','IN339346']">Home</a>
+      </li>
+        
+    <li class="nav-item active">
+        <a style="color:white"class="nav-link" [routerLink]="['/candidate-home']">Create</a>
+      </li>
+      <li class="nav-item active">
+          <a  [routerLink]="['/view/','IN339346']"style="color:white" class="nav-link">Preview/Update Details</a>
+        </li>
+  
+      <li class="nav-item active">
+        <a [routerLink]="['/employeeForm']" style="color:white" class="nav-link">Raise an Education Verification Request</a>
+      </li>
+      
+      <li class="nav-item active">
+          <a [routerLink]="['/job-request']" style="color:white" class="nav-link">Raise an Employment Verification Request</a>
+        </li>
+
+        <li class="nav-item active">
+            <a  [routerLink]="['/applyCourse']"style="color:white" class="nav-link">Apply for Courses</a>
+          </li>
+
+      <li class="nav-item active">
+          <a  [routerLink]="['/applyJob']"style="color:white" class="nav-link">Apply for Job</a>
+        </li>
+       
+          <li class="nav-item active">
+              <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+            </li>
+    </ul>
+
+</div>
+</div>
+
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+
+<!-- Step form -->
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+    <mat-step [stepControl]="firstFormGroup">
+        <!-- <div style="    width: 33%;
+        background: #ffd200;
+        left: 549px;
+        position: relative;
+        top: 61px;
+        z-index: 20;">Basic Details</div> -->
+        <mat-card style="margin: 36px; width:33%;left:513px">
+         
+            <mat-card-header  style="    background: #ffd200;
+            width: 110.5%;
+            left: -25px;
+            position: relative;
+            height: 71px;
+            font-weight: bold;
+            top: -24px;" ><span style="top: 23px;position: relative;font-family: Roboto,'Helvetica Neue',sans-serif;font-size:20px">Basic Details</span></mat-card-header>
+
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Basic Details</ng-template>
+        <mat-form-field style="width:100%">
+          <input [(ngModel)]="basic.firstName" matInput placeholder="First name" formControlName="firstCtrl" required>
+        
+        </mat-form-field>
+        <mat-form-field style="width:100%">
+           
+            <input [(ngModel)]="basic.middleName" matInput placeholder="Middle name" formControlName="firstCtrl1">
+          
+          </mat-form-field>
+          <mat-form-field style="width:100%">
+             
+              <input [(ngModel)]="basic.lastName" matInput placeholder="Last name" formControlName="firstCtrl2" required>
+            
+            </mat-form-field>
+              <mat-form-field style="width:100%">
+             
+             
+                  <input [(ngModel)]="basic.address" matInput placeholder="Address" formControlName="firstCtrl4" required>
+                </mat-form-field>
+
+                <mat-form-field style="width:100%">
+             
+             
+                    <input [(ngModel)]="basic.dob" matInput placeholder="Date of Birth" formControlName="firstCtrl5" required>
+                  </mat-form-field>
+        <div>
+          
+            <button  style="background-color: #333333"(click)="saveBasicDetails()" _ngcontent-c21="" color="primary" mat-raised-button="" class="mat-raised-button mat-primary"><span class="mat-button-wrapper">Save</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+          <button matStepperNext _ngcontent-c21="" mat-raised-button="" class="mat-raised-button"><span class="mat-button-wrapper">Next</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+          
+        </div>
+      </form>
+
+      </mat-card>
+    </mat-step>
+
+    <!-- Tab-1 Basic details ends here -->
+
+
+
+    <mat-step [stepControl]="secondFormGroup">
+      <form class="col-md-12" [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Education/Employement Details</ng-template>
+        <!-- Accordions -->
+
+        <mat-accordion multi="true">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header style="background: #ffd200">
+                <mat-panel-title style="font-weight: bold;
+                font-size: 20px;">
+                  Pre Degree Details
+                </mat-panel-title>
+                <mat-panel-description>
+                  (Details of X & XII)
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+          
+
+              <mat-form-field >
+                <input matInput [(ngModel)]="predegree.studentClass" [ngModelOptions]="{standalone: true}"placeholder="Class">
+              </mat-form-field>
+          
+              <mat-form-field style="margin-left: 40px;">
+                <input matInput  [(ngModel)]="predegree.registrationNumber" [ngModelOptions]="{standalone: true}" placeholder="Board Registration Number">
+              </mat-form-field>
+              <mat-form-field style="margin-left: 40px;">
+                  <input matInput  [(ngModel)]="predegree.schoolName" [ngModelOptions]="{standalone: true}" placeholder="School Name">
+                </mat-form-field>
+                <mat-form-field style="margin-left: 40px;">
+                    <input matInput  [(ngModel)]="predegree.batch" [ngModelOptions]="{standalone: true}" placeholder="Batch">
+                  </mat-form-field>
+                  <mat-form-field style="margin-left: 40px;">
+                      <input matInput   [(ngModel)]="predegree.cgpa" [ngModelOptions]="{standalone: true}" placeholder="CGPA / %">
+                    </mat-form-field>
+                    <mat-form-field style="margin-left: 40px;">
+                        <input matInput  [(ngModel)]="predegree.board" [ngModelOptions]="{standalone: true}" placeholder="Board">
+                      </mat-form-field>
+                      <mat-form-field style="margin-left: 40px;">
+                          <input matInput  [(ngModel)]="predegree.region"[ngModelOptions]="{standalone: true}" placeholder="Region">
+                        </mat-form-field>
+
+                        <i style="    margin-top: 19px;
+                        margin-left: 20px;
+                        font-size: 22px;
+                      color: rgb(63, 81, 181);"  (click)="saveDetails()" class="fa fa-floppy-o" aria-hidden="true"></i>
+
+<br><br>
+                      <!-- X standard details ends here -->
+
+
+<!-- XII STANDARD DETAILS STARTS HERE -->
+
+
+<mat-form-field>
+  <input matInput [(ngModel)]="predegree2.studentClass" [ngModelOptions]="{standalone: true}"placeholder="Class">
+</mat-form-field>
+
+<mat-form-field style="margin-left: 40px;">
+  <input matInput  [(ngModel)]="predegree2.registrationNumber" [ngModelOptions]="{standalone: true}" placeholder="Board Registration Number">
+</mat-form-field>
+<mat-form-field style="margin-left: 40px;">
+    <input matInput  [(ngModel)]="predegree2.schoolName" [ngModelOptions]="{standalone: true}" placeholder="School Name">
+  </mat-form-field>
+  <mat-form-field style="margin-left: 40px;">
+      <input matInput  [(ngModel)]="predegree2.batch" [ngModelOptions]="{standalone: true}" placeholder="Batch">
+    </mat-form-field>
+    <mat-form-field style="margin-left: 40px;">
+        <input matInput   [(ngModel)]="predegree2.cgpa" [ngModelOptions]="{standalone: true}" placeholder="CGPA / %">
+      </mat-form-field>
+      <mat-form-field style="margin-left: 40px;">
+          <input matInput  [(ngModel)]="predegree2.board" [ngModelOptions]="{standalone: true}" placeholder="Board">
+        </mat-form-field>
+        <mat-form-field style="margin-left: 40px;">
+            <input matInput  [(ngModel)]="predegree2.region"[ngModelOptions]="{standalone: true}" placeholder="Region">
+          </mat-form-field>
+
+          <i style="    margin-top: 19px;
+          margin-left: 20px;
+          font-size: 22px;
+        color: rgb(63, 81, 181);"  (click)="save2Details()" class="fa fa-floppy-o" aria-hidden="true"></i>
+
+
+
+
+<!-- XII standard ends here -->
+
+
+            </mat-expansion-panel>
+            <!-- Uncomment for second accordion  -->
+            <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Self aware panel
+                </mat-panel-title>
+                <mat-panel-description>
+                  Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>I'm visible because I am open</p>
+            </mat-expansion-panel> -->
+
+
+            <!-- Second panel -->
+
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header style="background: #ffd200">
+                  <mat-panel-title style="font-weight: bold;
+                  font-size: 20px;">
+                    Degree Details
+                  </mat-panel-title>
+                  <mat-panel-description>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+            
+  
+                <mat-form-field style="margin-top:14px">
+                  <input matInput [(ngModel)]="degree.degreeName" [ngModelOptions]="{standalone: true}"placeholder="Degree">
+                </mat-form-field>
+            
+                <mat-form-field style="margin-left: 14px;">
+                  <input matInput  [(ngModel)]="degree.regNumber" [ngModelOptions]="{standalone: true}" placeholder="University Registration Number">
+                </mat-form-field>
+                <mat-form-field style="margin-left: 14px;">
+                    <input matInput  [(ngModel)]="degree.specialisation" [ngModelOptions]="{standalone: true}" placeholder="Specialisation">
+                  </mat-form-field>
+                  <mat-form-field style="margin-left: 14px;">
+                      <input matInput  [(ngModel)]="degree.college" [ngModelOptions]="{standalone: true}" placeholder="College Name">
+                    </mat-form-field>
+                    <mat-form-field style="margin-left: 14px;">
+                        <input matInput   [(ngModel)]="degree.university" [ngModelOptions]="{standalone: true}" placeholder="University">
+                      </mat-form-field>
+                      <mat-form-field style="margin-left: 14px;">
+                          <input matInput  [(ngModel)]="degree.batch" [ngModelOptions]="{standalone: true}" placeholder="Batch">
+                        </mat-form-field>
+                        <mat-form-field style="margin-left: 14px;">
+                            <input matInput  [(ngModel)]="degree.cgpa"[ngModelOptions]="{standalone: true}" placeholder="CGPA / %">
+                          </mat-form-field>
+                          <mat-form-field style="margin-left: 14px;">
+                              <input matInput  [(ngModel)]="degree.region"[ngModelOptions]="{standalone: true}" placeholder="Region">
+                            </mat-form-field>
+  
+                          <i style="    margin-top: 34px;
+                          margin-left: 5px;
+                          font-size: 22px;
+                        color: rgb(63, 81, 181);"  (click)="saveDegreeDetails()" class="fa fa-floppy-o" aria-hidden="true"></i>
+  
+  <br>
+                        <!-- Degree details ends here -->
+  
+  
+  
+              </mat-expansion-panel>
+
+            <!-- Second panel ends -->
+
+
+
+            <!-- Third panel -->
+
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header style="background: #ffd200">
+                  <mat-panel-title style="font-weight: bold;
+                  font-size: 20px;">
+                    Employement Details
+                  </mat-panel-title>
+                  <mat-panel-description>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+            
+  
+                <mat-form-field >
+                  <input matInput [(ngModel)]="employement.companyName" [ngModelOptions]="{standalone: true}"placeholder="Company Name">
+                </mat-form-field>
+            
+                <mat-form-field style="margin-left: 40px;">
+                  <input matInput  [(ngModel)]="employement.employeeId" [ngModelOptions]="{standalone: true}" placeholder="Employee Id">
+                </mat-form-field>
+                <mat-form-field style="margin-left: 40px;">
+                    <input matInput  [(ngModel)]="employement.fromDate" [ngModelOptions]="{standalone: true}" placeholder="From Date">
+                  </mat-form-field>
+                  <mat-form-field style="margin-left: 40px;">
+                      <input matInput  [(ngModel)]="employement.toDate" [ngModelOptions]="{standalone: true}" placeholder="To Date">
+                    </mat-form-field>
+                    <mat-form-field style="margin-left: 40px;">
+                        <input matInput   [(ngModel)]="employement.role" [ngModelOptions]="{standalone: true}" placeholder="Role">
+                      </mat-form-field>
+                      <mat-form-field style="margin-left: 40px;">
+                          <input matInput  [(ngModel)]="employement.tenure" [ngModelOptions]="{standalone: true}" placeholder="Time served in the role">
+                        </mat-form-field>
+                        <mat-form-field style="margin-left: 40px;">
+                            <input matInput  [(ngModel)]="employement.ctc"[ngModelOptions]="{standalone: true}" placeholder="CTC">
+                          </mat-form-field>
+  
+                          <i style="    margin-top: 19px;
+                          margin-left: 20px;
+                          font-size: 22px;
+                        color: rgb(63, 81, 181);"  (click)="saveEmployementDetails()" class="fa fa-floppy-o" aria-hidden="true"></i>
+  
+  <br>
+                        <!-- Degree details ends here -->
+  
+  
+  
+              </mat-expansion-panel>
+            <!-- Third panel ends here -->
+
+
+
+
+          </mat-accordion>
+
+
+        <!--  -->
+        <div style="margin-top:20px">
+          
+
+          <button  matStepperPrevious _ngcontent-c21="" mat-raised-button="" class="mat-raised-button"><span class="mat-button-wrapper">Back</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+          <button  matStepperNext _ngcontent-c21="" mat-raised-button="" class="mat-raised-button"><span class="mat-button-wrapper">Next</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+         
+        </div>
+      </form>
+    </mat-step>
+
+
+
+   <!-- Tab-2 Education & Employement details ends here -->
+
+    <mat-step>
+      <ng-template matStepLabel>Documents Upload</ng-template>
+     
+    <mat-card style="margin: 7px 516px 404px;;
+">
+      <mat-accordion multi='true'>
+          <mat-expansion-panel  expanded="true">
+              <mat-expansion-panel-header style="background: #ffd200">
+                  <mat-panel-title style="font-weight: bold;
+                  font-size: 20px;">
+                   Education Related Documents
+                  </mat-panel-title>
+              <!-- <mat-panel-description>
+                Type your name and age
+              </mat-panel-description> -->
+
+
+            
+            </mat-expansion-panel-header>
+        
+            <table style="margin-top:15px"mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef>  </th>
+                  <td mat-cell *matCellDef="let element">  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Title" >
+                    </mat-form-field></td>
+                </ng-container>
+
+                <ng-container matColumnDef="file" >
+                    <th mat-header-cell *matHeaderCellDef>  </th>
+                    <td mat-cell *matCellDef="let element">
+                     
+                            <input  style="margin-top:19px;margin-left:10px"  type="file" ng2FileSelect [uploader]="uploader" />
+                        
+                  </ng-container>
+                  <ng-container matColumnDef="remove" >
+                      <th mat-header-cell *matHeaderCellDef>  </th>
+                      <td mat-cell *matCellDef="let element">
+                          <i style="
+                          margin-top: 20px;"(click)="removeRows()" class="fa fa-times" aria-hidden="true"></i>
+                             
+                          
+                    </ng-container>
+              
+                
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <button  (click)="addRows()" style=" background-color: #333333;   margin-top: 12px;" color="primary" mat-flat-button="" class="mat-flat-button mat-primary"><span class="mat-button-wrapper">Add</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+              <mat-expansion-panel-header style="background: #ffd200">
+                  <mat-panel-title style="font-weight: bold;
+                  font-size: 20px;">
+                   Employment Related Documents
+                  </mat-panel-title>
+              <!-- <mat-panel-description>
+                Type your name and age
+              </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <table style="margin-top:15px"mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef>  </th>
+                  <td mat-cell *matCellDef="let element">  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Title" >
+                    </mat-form-field></td>
+                </ng-container>
+
+                <ng-container matColumnDef="file" >
+                    <th mat-header-cell *matHeaderCellDef>  </th>
+                    <td mat-cell *matCellDef="let element">
+                     
+                            <input  style="margin-top:19px;margin-left:10px"  type="file" ng2FileSelect [uploader]="uploader" />
+                        
+                  </ng-container>
+                  <ng-container matColumnDef="remove" >
+                      <th mat-header-cell *matHeaderCellDef>  </th>
+                      <td mat-cell *matCellDef="let element">
+                          <i style="
+                          margin-top: 20px;"(click)="removeRows()" class="fa fa-times" aria-hidden="true"></i>
+                             
+                          
+                    </ng-container>
+              
+              
+                
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <button style="background-color: #333333 ;margin-top: 12px"  (click)="addRows()" color="primary" mat-flat-button="" class="mat-flat-button mat-primary"><span class="mat-button-wrapper">Add</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+       
+          </mat-expansion-panel>
+         
+          <mat-expansion-panel>
+              <mat-expansion-panel-header style="background: #ffd200">
+                  <mat-panel-title style="font-weight: bold;
+                  font-size: 20px;">
+                   CV
+                  </mat-panel-title>
+              <!-- <mat-panel-description>
+                Type your name and age
+              </mat-panel-description> -->
+            </mat-expansion-panel-header>
+        
+            <table style="margin-top:15px"mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef>  </th>
+                  <td mat-cell *matCellDef="let element">  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Title" >
+                    </mat-form-field></td>
+                </ng-container>
+
+                <ng-container matColumnDef="file" >
+                    <th mat-header-cell *matHeaderCellDef>  </th>
+                    <td mat-cell *matCellDef="let element">
+                     
+                            <input  style="margin-top:19px;margin-left:10px"  type="file" ng2FileSelect [uploader]="uploader" />
+                        
+                  </ng-container>
+              
+                  <ng-container matColumnDef="remove" >
+                      <th mat-header-cell *matHeaderCellDef>  </th>
+                      <td mat-cell *matCellDef="let element">
+                          <i style="
+                          margin-top: 20px;"(click)="removeRows()" class="fa fa-times" aria-hidden="true"></i>
+                             
+                          
+                    </ng-container>
+              
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <button style="    margin-top: 12px;background-color: #333333" (click)="addRows()" color="primary" mat-flat-button="" class="mat-flat-button mat-primary"><span class="mat-button-wrapper">Add</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+       
+          </mat-expansion-panel>
+        
+        </mat-accordion>
+      </mat-card>
+
+
+    </mat-step>
+  </mat-horizontal-stepper>
+
+
+</div>

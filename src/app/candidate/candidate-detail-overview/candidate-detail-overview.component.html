@@ -1,0 +1,355 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 69%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+<ul class="navbar-nav">
+    <li class="nav-item active">
+        <a style="color:white"class="nav-link" [routerLink]="['/candidate-profile/','IN339346']">Home</a>
+      </li>
+    <li class="nav-item active">
+        <a style="color:white"class="nav-link" [routerLink]="['/candidate-home']">Create</a>
+      </li>
+      <li class="nav-item active">
+          <a  [routerLink]="['/view/','IN339346']"style="color:white" class="nav-link">Preview/Update Details</a>
+        </li>
+  
+      <li class="nav-item active">
+        <a [routerLink]="['/employeeForm']" style="color:white" class="nav-link">Raise an Education Verification Request</a>
+      </li>
+      
+      <li class="nav-item active">
+          <a [routerLink]="['/job-request']" style="color:white" class="nav-link">Raise an Employement Verification Request</a>
+        </li>
+
+        <li class="nav-item active">
+            <a  [routerLink]="['/applyCourse']"style="color:white" class="nav-link">Apply for Courses</a>
+          </li>
+
+      <li class="nav-item active">
+          <a  [routerLink]="['/applyJob']"style="color:white" class="nav-link">Apply for Job</a>
+        </li>
+       
+          <li class="nav-item active">
+              <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+            </li>
+    </ul>
+
+</div>
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;width:29%">Candidate Id:{{candidateId}}</h1>
+
+  <button *ngIf="!edit" (click)="toggleEdit()" style="background-color:#333333;float:right;    top: -43px;
+  right: 36px;"   color="primary" mat-raised-button="" class="mat-raised-button mat-primary"><span class="mat-button-wrapper">Edit</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+          
+
+  <mat-card style="margin: 36px;">
+      <mat-card-title>Education Details</mat-card-title>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="studentClass">
+        <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Education </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element">
+            <mat-form-field *ngIf="edit" class="example-full-width">
+                <input matInput [(ngModel)]="element.studentClass">
+              </mat-form-field>   
+             <span *ngIf="!edit"> {{element.studentClass}} </span> 
+         </td>
+      </ng-container>
+    
+      <!-- RegNumber Column -->
+      <ng-container matColumnDef="registrationNumber">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> RegNumber </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+            <mat-form-field *ngIf="edit" class="example-full-width">
+                <input matInput [(ngModel)]="element.registrationNumber">
+              </mat-form-field>   
+             <span *ngIf="!edit"> {{element.registrationNumber}} </span> 
+           </td>
+      </ng-container>
+    
+      <!-- Board Column -->
+      <ng-container matColumnDef="board">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Board </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element">
+            <mat-form-field *ngIf="edit" class="example-full-width">
+                <input matInput [(ngModel)]="element.board">
+              </mat-form-field>   
+             <span *ngIf="!edit">  {{element.board}}  </span> 
+         </td>
+      </ng-container>
+    
+      <!-- School Column -->
+      <ng-container matColumnDef="schoolName">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> School </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+            <mat-form-field *ngIf="edit" class="example-full-width">
+                <input matInput [(ngModel)]="element.schoolName">
+              </mat-form-field>   
+             <span *ngIf="!edit"> {{element.schoolName}} </span> 
+           </td>
+      </ng-container>
+      <!-- Batch Column -->
+      <ng-container matColumnDef="batch">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Batch </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element">
+            <mat-form-field *ngIf="edit" class="example-full-width">
+                <input matInput [(ngModel)]="element.batch">
+              </mat-form-field>   
+             <span *ngIf="!edit"> {{element.batch}} </span> 
+          </td>
+      </ng-container>
+      <!-- Region Column -->
+      <ng-container matColumnDef="region">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Region </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+            <mat-form-field *ngIf="edit" class="example-full-width">
+                <input matInput [(ngModel)]="element.region">
+              </mat-form-field>   
+             <span *ngIf="!edit"> {{element.region}}</span> 
+           </td>
+      </ng-container>
+      <!-- CGPA Column -->
+      <ng-container matColumnDef="cgpa">
+        <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CGPA/% </th>
+        <td style="padding: 13px;" mat-cell *matCellDef="let element">
+            <mat-form-field *ngIf="edit" class="example-full-width">
+                <input matInput [(ngModel)]="element.cgpa">
+              </mat-form-field>   
+             <span *ngIf="!edit"> {{element.cgpa}} </span> 
+           </td>
+      </ng-container>
+
+      <ng-container matColumnDef="save">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element">
+              <button *ngIf="edit" style="background-color:#333333" (click)="saveChangesPredegree(element)"   color="primary" mat-raised-button="" class="mat-raised-button mat-primary"><span class="mat-button-wrapper">Save</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+             </td>
+        </ng-container>
+
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+<!-- Pre degree details ends here -->
+
+    <table style="margin-top:30px" mat-table [dataSource]="dataSource_degree" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="degree">
+          <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Degree </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.degreeName">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.degreeName}} </span> 
+             </td>
+        </ng-container>
+      
+        <!-- RegNumber Column -->
+        <ng-container matColumnDef="registrationNumber">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> RegNumber </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.regNumber">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.regNumber}}  </span> 
+            </td>
+        </ng-container>
+      
+        <!-- Board Column -->
+        <ng-container matColumnDef="specialisation">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Specialisation </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.specialisation">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.specialisation}} </span> 
+             </td>
+        </ng-container>
+      
+        <!-- School Column -->
+        <ng-container matColumnDef="college">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> College </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element">
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.college">
+                </mat-form-field>   
+               <span *ngIf="!edit">  {{element.college}} </span> 
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="batch">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Batch </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+                <mat-form-field *ngIf="edit" class="example-full-width">
+                    <input matInput [(ngModel)]="element.batch">
+                  </mat-form-field>   
+                 <span *ngIf="!edit"> {{element.batch}}</span> 
+               </td>
+          </ng-container>
+        <!-- Batch Column -->
+        <ng-container matColumnDef="university">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> University </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.university">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.university}} </span> 
+             </td>
+        </ng-container>
+        <!-- Region Column -->
+
+        <!-- CGPA Column -->
+        <ng-container matColumnDef="cgpa">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CGPA/% </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.cgpa">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.cgpa}} </span> 
+             </td>
+        </ng-container>
+
+     
+
+          <ng-container matColumnDef="save">
+              <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> </th>
+              <td style="padding: 13px;" mat-cell *matCellDef="let element">
+                  <button *ngIf="edit" style="background-color:#333333" (click)="saveChangesDegree(element)"   color="primary" mat-raised-button="" class="mat-raised-button mat-primary"><span class="mat-button-wrapper">Save</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+                 </td>
+            </ng-container>
+
+          
+
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns_degree"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns_degree;"></tr>
+      </table>
+    
+    <!-- Degree details end here -->
+</mat-card>
+<mat-card style="margin: 36px;">
+    <mat-card-title>Employment Details</mat-card-title>
+    <table style="margin-top:30px" mat-table [dataSource]="dataSource_employement" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="companyName">
+          <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Name of the Company </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.companyName">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.companyName}} </span> 
+             </td>
+        </ng-container>
+      
+        <!-- RegNumber Column -->
+        <ng-container matColumnDef="employeeId">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Employee Id </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element">
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.employeeId">
+                </mat-form-field>   
+               <span *ngIf="!edit">{{element.employeeId}} </span> 
+             </td>
+        </ng-container>
+      
+        <!-- Board Column -->
+        <ng-container matColumnDef="fromDate">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> From </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.fromDate">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.fromDate}} </span> 
+             </td>
+        </ng-container>
+      
+        <!-- School Column -->
+        <ng-container matColumnDef="toDate">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> To </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.toDate">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.toDate}} </span> 
+             </td>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Role </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+                <mat-form-field *ngIf="edit" class="example-full-width">
+                    <input matInput [(ngModel)]="element.role">
+                  </mat-form-field>   
+                 <span *ngIf="!edit">{{element.role}} </span> 
+               </td>
+          </ng-container>
+        <!-- Batch Column -->
+        <ng-container matColumnDef="tenure">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Tenure in the role </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.tenure">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.tenure}} </span> 
+             </td>
+        </ng-container>
+        <!-- Region Column -->
+
+        <!-- CGPA Column -->
+        <ng-container matColumnDef="ctc">
+          <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CTC </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> 
+              <mat-form-field *ngIf="edit" class="example-full-width">
+                  <input matInput [(ngModel)]="element.ctc">
+                </mat-form-field>   
+               <span *ngIf="!edit"> {{element.ctc}} </span> 
+             </td>
+        </ng-container>
+
+        <ng-container matColumnDef="save">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element">
+                <button *ngIf="edit" style="background-color:#333333" (click)="saveChangesEmployment(element)"   color="primary" mat-raised-button="" class="mat-raised-button mat-primary"><span class="mat-button-wrapper">Save</span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button>
+               </td>
+          </ng-container>
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns_employement"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns_employement;"></tr>
+      </table>
+</mat-card>
+
+
+</div>

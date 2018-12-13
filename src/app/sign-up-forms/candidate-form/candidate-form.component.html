@@ -1,0 +1,24 @@
+<mat-card class="example-card">
+    <mat-card-header style="    background: #ffd200;;
+    position: relative;
+    height: 71px;
+    top: -24px;
+    width: 112.5%;
+    left: -25px;">
+      <!-- <div mat-card-avatar class="example-header-image"><i class="fa fa-check" aria-hidden="true"></i></div> -->
+      <mat-card-title><span style="top: 23px;position: relative;font-family: Roboto,'Helvetica Neue',sans-serif;font-size:20px">Candidate Sign-up Form</span></mat-card-title>
+      <!-- <mat-card-subtitle>Educational</mat-card-subtitle> -->
+    </mat-card-header>
+   
+    <mat-card-content>
+            <mat-form-field style="width:100%;margin-top:17px"class="example-full-width" >
+                    <input  matInput [(ngModel)]="candidate.userName"  [ngModelOptions]="{standalone: true}" placeholder="User Name">
+                  </mat-form-field>
+                  <mat-form-field style="width:100%;margin-top:17px"class="example-full-width" >
+                      <input matInput  [(ngModel)]="candidate.password"  [ngModelOptions]="{standalone: true}" placeholder="Password">
+                    </mat-form-field>            
+    </mat-card-content>
+    <mat-card-actions>
+            <button (click)="signUp()" mat-button style="margin-top:-8px">Sign-up</button>
+    </mat-card-actions>
+  </mat-card>

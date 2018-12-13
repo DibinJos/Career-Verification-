@@ -1,0 +1,173 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+
+<!-- <ul style="    top: 58px;
+position: relative;
+left: 193px;"class="navbar-nav">
+  
+    
+    <li class="nav-item active">
+        <a  [routerLink]="['/search']" style="color:white" class="nav-link">Search Candidate Details</a>
+      </li>
+    </ul> -->
+
+
+   
+    <div style="    background-color: #292b2c;
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 60px;
+    width: 49%;
+    position: relative;
+    left: 18px;
+    top: 29px;">
+    <div style="color:white; font-weight: bold;width:100%;    text-align: center;">Registration</div>
+        <ul class="navbar-nav">
+            
+            <li style="margin-left:60px" class="nav-item active">
+                <a  [routerLink]="['/']" style="color:white" class="nav-link">Educational Institutes-Registration</a>
+              </li>      
+                  <li class="nav-item active">
+                      <a  [routerLink]="['/']" style="color:white" class="nav-link">Company/Employer-Registration</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a  [routerLink]="['/']" style="color:white" class="nav-link">Recruiter/Job Aggregator-Registration</a>
+                      </li>
+                
+            </ul>
+
+    </div>
+
+    <div style="       background-color: #292b2c;
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 62px;
+    width: 42%;
+    position: absolute;
+    left: 850px;
+    top: 28px;">
+    <div style="color:white; font-weight: bold;width:100%;    text-align: center;    position: relative;
+    top: 5px;">Verification</div>
+        <ul style="    top: 0px;
+        position: relative;
+        left: -45px;" class="navbar-nav">
+            
+            <li style="margin-left:60px" class="nav-item active">
+                <a   style="color:white" class="nav-link" (click)="toggleDropdown()">Candidate Verification</a>
+                <div *ngIf="showDropdown" style="
+                position: absolute;
+                top: 49px;
+                background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    background-color: #fff;">
+                  <ul>
+                    <li>
+                      <a class="a_class" [routerLink]="['/superadmin-home']">Education Verification</a>
+                      </li>
+                      <li>
+                        <a  class="a_class"  [routerLink]="['/job-request-list']">Employment Verification</a>
+                        </li>
+                        <li>
+                          <a class="a_class"  [routerLink]="['/search-candidate-superadmin']">Search Education Details</a>
+                          </li>
+                          <li >
+                            <a class="a_class"  [routerLink]="['/search-employee-superadmin']">Search Employment Details</a>
+                            </li>
+                  </ul>
+                  </div>
+              </li>      
+                  <li class="nav-item active">
+                      <a  [routerLink]="['/']" style="color:white" class="nav-link">Educational Institute Verification</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a  [routerLink]="['/']" style="color:white" class="nav-link">Employer/Recruiter Verification</a>
+                      </li>
+                
+            </ul>
+
+    </div>
+
+
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;;width:29%">Employment Verification List</h1>
+
+  <mat-card style="margin: 36px;">
+   
+  
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="Request Id">
+          <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Request Id </th>
+          <td  style="padding: 13px;" mat-cell *matCellDef="let element" > {{element.RequestId}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="Candidate Id">
+          <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Candidate Id </th>
+          <td style="padding: 13px;" mat-cell [routerLink]="['/certify-job', element.CandidateId]" *matCellDef="let element"> {{element.CandidateId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Status">
+            <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Status </th>
+            <td style="padding: 13px;"mat-cell  *matCellDef="let element"> {{element.Status}} </td>
+          </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Candidate Remarks">
+          <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Candidate Remarks </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.CandidateRemarks}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Verifier Remarks">
+            <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Verifier Remarks</th>
+            <td mat-cell  *matCellDef="let element"> {{element.VerifierRemarks}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Action">
+              <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Action</th>
+              <td mat-cell  *matCellDef="let element">
+                <span   *ngIf="element.Status != 'Request Initiated'" style="position:relative;bottom:-8px">
+                  <img src='../../../assets/Capture.PNG' width="42" height="42">
+              </span>
+
+              <span   *ngIf="element.Status == 'Request Initiated'" (click)="changeStatus(element.RequestId,'Evaluation Completed')">
+
+                  <img class="irc_mut" alt="Image result for process completed icon" onload="typeof google==='object'&amp;&amp;google.aft&amp;&amp;google.aft(this)" src="data:image/png;base64,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" width="42" height="42">
+
+
+              </span>
+                </td>
+            </ng-container>
+    
+      
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+
+</mat-card>
+</div>

@@ -1,0 +1,100 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px"></div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;">Welcome,Harry!</h1>
+
+  <mat-card style="margin: 36px;">
+   
+  
+    <mat-accordion>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          Education Details
+        </mat-expansion-panel-header>
+    
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="Education">
+            <th mat-header-cell *matHeaderCellDef style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Education </th>
+            <td style="padding: 13px;"mat-cell *matCellDef="let element" > {{element.Education}} </td>
+          </ng-container>
+        
+          <!-- RegNumber Column -->
+          <ng-container matColumnDef="RegNumber">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> RegNumber </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.RegNumber}} </td>
+          </ng-container>
+        
+          <!-- Board Column -->
+          <ng-container matColumnDef="Board">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Board </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Board}} </td>
+          </ng-container>
+        
+          <!-- School Column -->
+          <ng-container matColumnDef="School">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> School </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.School}} </td>
+          </ng-container>
+          <!-- Batch Column -->
+          <ng-container matColumnDef="Batch">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Batch </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Batch}} </td>
+          </ng-container>
+          <!-- Region Column -->
+          <ng-container matColumnDef="Region">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> Region </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.Region}} </td>
+          </ng-container>
+          <!-- CGPA Column -->
+          <ng-container matColumnDef="CGPA">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"> CGPA/% </th>
+            <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.CGPA}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Approve">
+            <th mat-header-cell *matHeaderCellDef  style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px">Certified/Rejected</th>
+            <td style="padding: 13px;" mat-cell   *matCellDef="let element">
+              <div style="margin-left:28px" *ngIf="(element.Education == 'X' && this.certificates[0] == 'Approved') || (element.Education == 'XII' && this.certificates[1] == 'Approved')">
+              <span class="fa fa-stack">
+              <i style="color:rgb(76, 175, 80)"class="fa fa-shield fa-stack-2x"></i>
+              <i class="fa fa-square fa-stack-bottom-right fa-inverse"></i>
+              <i style="color:rgb(76, 175, 80)"class="fa fa-check-square fa-stack-bottom-right"></i>
+          </span></div></td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        
+    
+      </mat-expansion-panel>
+    
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          This is the expansion 2 title
+        </mat-expansion-panel-header>
+    
+        This the expansion 2 content
+    
+      </mat-expansion-panel>
+    
+    </mat-accordion>
+
+</mat-card>
+</div>

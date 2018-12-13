@@ -1,0 +1,114 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 41%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+    <ul class="navbar-nav">
+        
+        <li class="nav-item active">
+            <a  [routerLink]="['/courserequest']" style="color:white" class="nav-link">Course Requests</a>
+          </li>
+        <li class="nav-item active">
+            <a  [routerLink]="['/upload-candidate']" style="color:white" class="nav-link">Upload Candidate Details</a>
+          </li>
+            <li class="nav-item active">
+                <a  [routerLink]="['/search']" style="color:white" class="nav-link">Search Candidate Details</a>
+              </li>
+              <li class="nav-item active">
+                  <a  [routerLink]="['/course-posting']" style="color:white" class="nav-link">Course Postings</a>
+                </li>
+                <li class="nav-item active">
+                    <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+                  </li>
+            
+        </ul>
+
+</div>
+
+
+
+
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;">Course Requests</h1>
+
+  <mat-card style="margin: 36px;">
+   
+  
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="Request Id">
+          <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Request Id </th>
+          <td  style="padding: 13px;" mat-cell *matCellDef="let element" > {{element.requestId}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="Course Id">
+          <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Course Id </th>
+          <td mat-cell style="padding: 13px;" *matCellDef="let element"> {{element.courseId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Candidate Id">
+            <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Candidate Id </th>
+            <td style="padding: 13px;" mat-cell  [routerLink]="['/candidate-details', element.candidateId]" *matCellDef="let element"> {{element.candidateId}} </td>
+          </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Candidate Remarks">
+          <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px" mat-header-cell *matHeaderCellDef> Candidate Remarks </th>
+          <td style="padding: 13px;" mat-cell *matCellDef="let element"> {{element.candidateRemarks}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Status">
+            <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"  mat-header-cell *matHeaderCellDef> Status</th>
+            <td style="padding: 13px;" mat-cell  *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Action">
+              <th style="background: #ffd200;font-weight:bold;padding:13px;font-size:14px"  mat-header-cell *matHeaderCellDef>Action</th>
+              <td style="padding: 13px;color:darkolivegreen" mat-cell  *matCellDef="let element">
+                <span *ngIf="element.status == 'Candidate Applied'">
+                <i (click)="changeStatus(element.courseId,'Selected')" style="font-size: 22px;margin-right: 12px;color:green"class="fa fa-thumbs-up" title="Proceed" aria-hidden="true"></i>
+                <i (click)="changeStatus(element.courseId,'On-hold')" style="font-size: 22px;margin-right: 12px;"class="fa fa-hand-rock-o" title="Put on-hold"aria-hidden="true"></i>
+                <i (click)="changeStatus(element.courseId,'Rejected')" style="font-size:22px;color:red"class="fa fa-thumbs-down" title="Reject"aria-hidden="true"></i>
+              </span>
+              <span *ngIf="element.status != 'Candidate Applied'">
+                {{element.status}}
+              </span>
+              </td>
+                
+              </ng-container>
+    
+      
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    
+
+</mat-card>
+</div>

@@ -1,0 +1,248 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 69%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a style="color:white"class="nav-link" [routerLink]="['/candidate-profile/','IN339346']">Home</a>
+      </li>
+        <li class="nav-item active">
+            <a style="color:white"class="nav-link" [routerLink]="['/candidate-home']">Create</a>
+          </li>
+          <li class="nav-item active">
+              <a  [routerLink]="['/view/','IN339346']"style="color:white" class="nav-link">Preview/Update Details</a>
+            </li>
+      
+          <li class="nav-item active">
+            <a [routerLink]="['/employeeForm']" style="color:white" class="nav-link">Raise an Education Verification Request</a>
+          </li>
+          
+          <li class="nav-item active">
+              <a [routerLink]="['/job-request']" style="color:white" class="nav-link">Raise an Employment Verification Request</a>
+            </li>
+
+            <li class="nav-item active">
+                <a  [routerLink]="['/applyCourse']"style="color:white" class="nav-link">Apply for Courses</a>
+              </li>
+
+          <li class="nav-item active">
+              <a  [routerLink]="['/applyJob']"style="color:white" class="nav-link">Apply for Job</a>
+            </li>
+           
+              <li class="nav-item active">
+                  <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+                </li>
+        </ul>
+
+</div>
+
+</div>
+
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+
+
+
+<mat-card class="example-card " style="background:url('./assets/background.png')">
+      <!-- <h1 style="top: 18px;
+      font-size: 35px;
+      position: relative;
+      left: 49px;width:29%">Course  Updates</h1> -->
+<div class="row" style="margin-top:30px">
+
+<div class="col-md-1"></div>
+
+
+
+    <div class="col-md-6">
+        <mat-card  class="example-card cardHeight">
+            <mat-card-header>
+              <mat-card-title><img style="height:90px" src="../../../assets/Candidate-01.png" /></mat-card-title>
+              <mat-card-subtitle><b>Harry Kane</b><span style="float:right;right: 75px;position: absolute;"><b>Company-1</b></span></mat-card-subtitle>
+              <mat-card-subtitle><b>Associate Consultant Comapany-1</b><span style="float:right;right: 75px;position: absolute;"><b>St.Joseph's College</b></span></mat-card-subtitle>
+              <mat-card-subtitle>Aerocity,New Delhi<span style="float:right;right: 75px;position: absolute;">harryKane@gmail.com</span></mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="contentHeight" style="margin-top:20px">
+              <p>
+                  Co-chair of the Jerry & Linda Rock Foundation. Company-1 Co-founder. Multiyear experience in IT coding and managing teams .Voracious reader. Avid traveler. Active blogger.
+              </p>
+            </mat-card-content>
+          </mat-card>
+        
+        
+          <mat-card class="example-card cardHeight" style="margin-top:30px">
+              <mat-card-content class="contentHeight" style="margin-top:20px">
+
+                <div class="row">
+
+                  <div class="col-md-6">
+                  <mat-card class="example-card cardHeight">
+                      <mat-card-header>
+                        <mat-card-title><h1>5</h1></mat-card-title>
+                        <mat-card-subtitle>Jobs Applied</mat-card-subtitle>
+                        <i style="   font-size: 73px;
+                        right: -71px;
+                        position: relative;
+                        top: 11px;"class="fa fa-suitcase"></i>
+     
+                      </mat-card-header>
+                    </mat-card>
+</div>
+<div class="col-md-6">
+                    <mat-card class="example-card cardHeight">
+                        <mat-card-header>
+                          <mat-card-title><h1>1</h1></mat-card-title>
+                          <mat-card-subtitle>Courses Applied</mat-card-subtitle>
+                          <i style="font-size: 73px;
+                          right: -40px;
+                          position: relative;
+                          top: 11px;"class="fa fa-book"></i>
+                        </mat-card-header>
+                      </mat-card>
+</div>
+
+                          </div>
+              </mat-card-content>
+           
+            </mat-card>
+
+
+
+            <mat-card class="example-card cardHeight" style="margin-top:30px">
+                <mat-card-header>
+                  <mat-card-title>Skills & Endorsements</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content class="contentHeight">
+                      <mat-list>
+                          <mat-list-item>
+                          Blockchain
+                          </mat-list-item>
+                          <mat-list-item>
+                              Ethereum
+                              </mat-list-item>
+                              <mat-list-item>
+                                  Hyperledger
+                                  </mat-list-item>
+                          
+                       
+                          
+                        </mat-list>
+                  </mat-card-content>
+              </mat-card>
+        
+        
+
+              <mat-card class="example-card cardHeight" style="margin-top:30px">
+                <mat-card-header>
+                  <mat-card-title>Accomplishments</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content class="contentHeight">
+                      <mat-list>
+                          <mat-list-item>
+                              <i class="fa fa-trophy" style="    font-size: 23px;
+                              margin-right: 10px;
+                              color: #FFD700;"></i>Created an innovative database using Salesforce, resulting in a 50% reduction in response time for the processing of client queries.
+                          </mat-list-item>
+                          <mat-list-item >
+                              <i class="fa fa-trophy" style="    font-size: 23px;
+                              margin-right: 10px;
+                              color: #FFD700;"></i>Runner up in Global Blockchain Hackathon,2017 conducted by Company-1
+                              </mat-list-item>
+                              <mat-list-item>
+                                  <i class="fa fa-trophy" style="    font-size: 23px;
+                                  margin-right: 10px;
+                                  color: #FFD700;"></i>Spearheaded an initiative to boost customer interest in the store loyalty card, resulting in a full 20% increase in sales of the card.
+                                  </mat-list-item>
+                          
+                       
+                          
+                        </mat-list>
+                  </mat-card-content>
+              </mat-card>
+          
+        </div>
+
+
+        <div class="col-md-3">
+
+
+          <div style="font-family: Trebuchet MS !important;font-size:20px">Job Updates</div>
+            
+                    <mat-list>
+                        <mat-list-item style="margin-top: 10px;">
+                          <img style="height:50px" src="../../../assets/Candidate-01.png" />Blockchain developer-Company-2
+                        </mat-list-item>
+                        <mat-list-item style="margin-top: 10px;">
+                          <img style="height:50px" src="../../../assets/Candidate-01.png" />Data Scientist-Company-3
+                            </mat-list-item>
+                            <mat-list-item style="margin-top: 10px;">
+                              <img style="height:50px" src="../../../assets/Candidate-01.png" />Data Analyst-Company-4
+                                </mat-list-item>
+                        
+                     
+                        
+                      </mat-list>
+            
+                      <mat-divider style="margin-top:30px;margin-bottom:30px"></mat-divider>
+                      <div style="margin-top:60px; font-family: Trebuchet MS !important;font-size:20px">Course Updates</div>
+                    <mat-list >
+                      <mat-list-item style="margin-top: 10px;">
+                        <img style="height:50px" src="../../../assets/Candidate-01.png" />B.Com-JNU College,Delhi
+                      </mat-list-item>
+                      <mat-list-item style="margin-top: 10px;">
+                        <img style="height:50px" src="../../../assets/Candidate-01.png" />B.Tech-St.Joseph's College,Uttar Pradesh
+                          </mat-list-item>
+                          <mat-list-item style="margin-top: 10px;">
+                            <img style="height:50px" src="../../../assets/Candidate-01.png" />Bsc Biotech-St.Mary's College,Karnataka
+                              </mat-list-item>
+                      
+                   </mat-list>
+                 
+                   <mat-divider style="margin-top:30px"></mat-divider>
+
+
+
+                   <mat-divider style="margin-top:30px;margin-bottom:30px"></mat-divider>
+                   <div style="margin-top:60px; font-family: Trebuchet MS !important;font-size:20px">Upgrade Your Skill</div>
+                 <mat-list >
+                   <mat-list-item style="margin-top: 25px;">
+                      <i class="fa fa-video-camera" style="font-size: 25px;
+                      margin-right: 14px;    margin-top: -18px;"></i>GDPR Compliance: Essential Training<br>
+                      Viewers: 48,735
+                   </mat-list-item>
+                   <mat-list-item style="margin-top: 25px;">
+                      <i class="fa fa-video-camera" style="font-size: 25px;
+                      margin-right: 14px;    margin-top: -18px;"></i>Smart Cities: Solving Urban Problems Using Technology<br>
+                      Viewers: 11,760
+                       </mat-list-item>
+                       <mat-list-item style="margin-top: 25px;">
+                          <i class="fa fa-video-camera" style="font-size: 25px;
+                          margin-right: 14px;    margin-top: -18px;"></i>Reactive Java 9<br>
+                          Viewers: 12,380
+                           </mat-list-item>
+                   
+                </mat-list>
+              
+                <mat-divider style="margin-top:30px"></mat-divider>
+
+        </div>
+</div>
+</mat-card>
+
+</div>

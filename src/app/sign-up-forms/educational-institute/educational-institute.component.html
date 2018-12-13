@@ -1,0 +1,39 @@
+<mat-card class="example-card">
+    <mat-card-header style="    background: #ffd200;;
+    position: relative;
+    height: 71px;
+    top: -24px;
+    width: 112.5%;
+    left: -25px;">
+      <!-- <div mat-card-avatar class="example-header-image"><i class="fa fa-check" aria-hidden="true"></i></div> -->
+      <mat-card-title>
+        <span style="top: 23px;position: relative;font-family: Roboto,'Helvetica Neue',sans-serif;font-size:20px">Educational Institute Sign-up Form</span></mat-card-title>
+      <!-- <mat-card-subtitle>Educational</mat-card-subtitle> -->
+    </mat-card-header>
+   
+    <mat-card-content>
+        <mat-form-field style="width:100%;margin-top:17px"class="example-full-width" >
+            <input matInput  [(ngModel)]="education.userName"  [ngModelOptions]="{standalone: true}" placeholder="User Name">
+          </mat-form-field>
+          <mat-form-field style="width:100%;margin-top:17px"class="example-full-width" >
+              <input matInput  [(ngModel)]="education.password"  [ngModelOptions]="{standalone: true}" placeholder="Password">
+            </mat-form-field>     
+            <mat-form-field style="width:100%;margin-top:17px"class="example-full-width" >
+                    <input  matInput [(ngModel)]="education.instituteName"  [ngModelOptions]="{standalone: true}" placeholder="Institute Name">
+                  </mat-form-field>
+                  <mat-form-field style="width:100%;margin-top:17px"class="example-full-width" >
+                      <input matInput  [(ngModel)]="education.licenseNumber"  [ngModelOptions]="{standalone: true}" placeholder="License Number">
+                    </mat-form-field>      
+                    
+                    <mat-form-field style="width:100%">
+                        <mat-select style="width:100%;margin-top:17px" placeholder="-Select a Subscription-" [(ngModel)]="education.subscription" name="subscription">
+                          <mat-option *ngFor="let subscription of subscriptions" [value]="subscription">
+                            {{subscription}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+            <button (click)="signUp()" mat-button style="margin-top:-8px;">Sign-up</button>
+    </mat-card-actions>
+  </mat-card>

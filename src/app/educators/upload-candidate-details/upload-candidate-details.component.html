@@ -1,0 +1,153 @@
+<div style="background: url(./assets/header_background.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height:96px">
+
+
+
+<div style="    background-color: #292b2c;
+border-radius: 5px;
+border: 1px solid grey;
+height: 60px;
+width: 41%;
+position: relative;
+left: 18px;
+top: 29px;">
+<div style="color:white; font-weight: bold;width:100%;    text-align: center;">Menu</div>
+    <ul class="navbar-nav">
+        
+        <li class="nav-item active">
+            <a  [routerLink]="['/courserequest']" style="color:white" class="nav-link">Course Requests</a>
+          </li>
+        <li class="nav-item active">
+            <a  [routerLink]="['/upload-candidate']" style="color:white" class="nav-link">Upload Candidate Details</a>
+          </li>
+            <li class="nav-item active">
+                <a  [routerLink]="['/search']" style="color:white" class="nav-link">Search Candidate Details</a>
+              </li>
+              <li class="nav-item active">
+                  <a  [routerLink]="['/course-posting']" style="color:white" class="nav-link">Course Postings</a>
+                </li>
+                <li class="nav-item active">
+                    <a  [routerLink]="['/']" style="color:white" class="nav-link">Logout</a>
+                  </li>
+            
+        </ul>
+
+</div>
+
+
+</div>
+<div style="background:url('./assets/background.png'); height: 100%; 
+
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;">
+  <h1 style="top: 18px;
+  font-size: 35px;
+  position: relative;
+  left: 49px;">Upload Candidate Details</h1>
+
+  <mat-card style="margin: 36px;">
+      <mat-form-field style="width:13%">
+          <mat-select style="width:100%;margin-top:7px" placeholder="-Select an Education-" [(ngModel)]="selectedValue" (selectionChange)="toggle()">
+            <mat-option *ngFor="let education of educations" [value]="education">
+              {{education}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <div *ngIf="showPreDegree">
+            <mat-form-field style="margin-top:14px">
+                <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}"placeholder="Name">
+              </mat-form-field>
+        <mat-form-field style="margin-left:14px;" >
+            <input matInput [(ngModel)]="degree.degreeName" [ngModelOptions]="{standalone: true}"placeholder="Class(X/XII)">
+          </mat-form-field>
+    
+        <mat-form-field style="margin-left:14px;">
+          <input matInput  [(ngModel)]="predegree.registrationNumber" [ngModelOptions]="{standalone: true}" placeholder="Board Registration Number">
+        </mat-form-field>
+        <mat-form-field style="margin-left: 14px;">
+            <input matInput  [(ngModel)]="predegree.schoolName" [ngModelOptions]="{standalone: true}" placeholder="School Name">
+          </mat-form-field>
+          <mat-form-field style="margin-left: 14px">
+              <input matInput  [(ngModel)]="predegree.batch" [ngModelOptions]="{standalone: true}" placeholder="Batch">
+            </mat-form-field>
+            <mat-form-field style="margin-left: 14px">
+                <input matInput   [(ngModel)]="predegree.cgpa" [ngModelOptions]="{standalone: true}" placeholder="CGPA / %">
+              </mat-form-field>
+              <mat-form-field style="margin-left: 14px;">
+                  <input matInput  [(ngModel)]="predegree.board" [ngModelOptions]="{standalone: true}" placeholder="Board">
+                </mat-form-field>
+                <mat-form-field style="margin-left: 14px;">
+                    <input matInput  [(ngModel)]="predegree.region"[ngModelOptions]="{standalone: true}" placeholder="Region">
+                  </mat-form-field>
+
+                  <i *ngIf="verifyPreDegree" style="    margin-top: 35px;
+                  margin-left: 5px;
+                  font-size: 22px;
+                color: rgb(63, 81, 181);"  title="Verify" (click)="toggleVerifyPreDegree()" class="fa fa-check" aria-hidden="true"></i>
+                <i *ngIf="!verifyPreDegree" style="    margin-top: 35px;
+                  margin-left: 5px;
+                  font-size: 22px;
+                color: rgb(63, 81, 181);" title="Save" (click)="save()" class="fa fa-floppy-o" aria-hidden="true"></i>
+
+<br>
+</div>
+
+
+<div *ngIf="showDegree">
+    <mat-form-field style="margin-top:14px">
+        <input matInput [(ngModel)]="name" [ngModelOptions]="{standalone: true}"placeholder="Name">
+      </mat-form-field>
+<mat-form-field style="margin-left:14px;width: 8%;">
+    <input matInput [(ngModel)]="degree.degreeName" [ngModelOptions]="{standalone: true}"placeholder="Degree">
+  </mat-form-field>
+
+  <mat-form-field style="margin-left: 14px;">
+    <input matInput  [(ngModel)]="degree.regNumber" [ngModelOptions]="{standalone: true}" placeholder="University Registration Number">
+  </mat-form-field>
+  <mat-form-field style="margin-left: 14px;">
+      <input matInput  [(ngModel)]="degree.specialisation" [ngModelOptions]="{standalone: true}" placeholder="Specialisation">
+    </mat-form-field>
+    <mat-form-field style="margin-left: 14px;width: 13%;">
+        <input matInput  [(ngModel)]="degree.college" [ngModelOptions]="{standalone: true}" placeholder="College Name">
+      </mat-form-field>
+      <mat-form-field style="margin-left: 14px;">
+          <input matInput   [(ngModel)]="degree.university" [ngModelOptions]="{standalone: true}" placeholder="University">
+        </mat-form-field>
+        <mat-form-field style="margin-left: 14px;width: 8%;">
+            <input matInput  [(ngModel)]="degree.batch" [ngModelOptions]="{standalone: true}" placeholder="Batch">
+          </mat-form-field>
+          <mat-form-field style="margin-left: 14px;width: 8%;">
+              <input matInput  [(ngModel)]="degree.cgpa"[ngModelOptions]="{standalone: true}" placeholder="CGPA / %">
+            </mat-form-field>
+            <mat-form-field style="margin-left: 14px;;width: 8%;">
+                <input matInput  [(ngModel)]="degree.region"[ngModelOptions]="{standalone: true}" placeholder="Region">
+              </mat-form-field>
+
+              <i *ngIf="verifyDegree" style="    margin-top: 34px;
+              margin-left: 5px;
+              font-size: 22px;
+            color: rgb(63, 81, 181);"  title="Validate" (click)="toggleVerifyDegree()" class="fa fa-check" aria-hidden="true"></i>
+
+            <i *ngIf="!verifyDegree" style="    margin-top: 34px;
+            margin-left: 5px;
+            font-size: 22px;
+          color: rgb(63, 81, 181);"  title="Save" (click)="save()" class="fa fa-floppy-o" aria-hidden="true"></i>
+
+          </div>
+
+          <div style="margin-top:20px;margin-bottom:20px;width: 100%; height: 20px; border-bottom: 1px solid black; text-align: center">
+              <span style="font-size:20px; background-color: #ffffff; padding: 0 10px;">
+                OR <!--Padding is optional-->
+              </span>
+            </div>
+
+
+            <button style="margin-top:10px;background-color: #333333"_ngcontent-c17="" _ngcontent-c22="" class="mat-flat-button mat-primary" mat-flat-button=""><span class="mat-button-wrapper"><span _ngcontent-c17="" class="mat-button-wrapper"><i _ngcontent-c17="" aria-hidden="true" class="fa fa-upload" style="margin-right: 8px;"></i>Upload Excel</span><div _ngcontent-c17="" class="mat-button-ripple mat-ripple" matripple=""></div><div _ngcontent-c17="" class="mat-button-focus-overlay"></div></span><div class="mat-button-ripple mat-ripple" matripple="" ng-reflect-centered="false" ng-reflect-disabled="false" ng-reflect-trigger="[object HTMLButtonElement]"></div><div class="mat-button-focus-overlay"></div></button>
+</mat-card>
+</div>
